@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class FullNameGenerator {
     public static void main(String[] args) {
         Scanner userScanner = new Scanner(System.in);
-
+        //! is used to signal "not"
         String fullName = ("");
         //print ln- will drop answer to a new line.  print-will prompt answer right next to question.
         System.out.println("Please enter your name");
@@ -25,23 +25,26 @@ public class FullNameGenerator {
         System.out.print("Suffix: ");
         String suffix = userScanner.nextLine().trim();
 
-        // Add first name to fullNameVariable //! is used to signal "not"
-        if(!middleName.equals("")) {
-            fullName += firstName + " ";
-        }
+        // Add first name to fullNameVariable
+        fullName += firstName + " ";
+
         // * Add Middle name to fullNameVariable, Making sure to have whitespace
-        fullName += middleName + " ";
+        if(!middleName.equals("")) {
+            fullName += middleName + " ";
+        }
 
         // Add last name to fullNameVariable
-        fullName += lastName + " ";
+        fullName += lastName;
 
         // if there is a suffix, add (", " + suffix) to fullNameVariable
         // Otherwise do nothing
         if(!suffix.equals("")){
             fullName += ", " + suffix;
         }
+
         // Print out full name
         System.out.println("Full name: " + fullName);
 
     }
+
 }
